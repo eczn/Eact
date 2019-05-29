@@ -1,0 +1,28 @@
+{
+  "name": "eact",
+  "version": "5.0.6",
+  "description": "",
+  "main": "dist/tplser.dist.js",
+  "types": "dist/typings/core/index.d.ts",
+  "scripts": {
+    "start": "node start"
+  },
+  "author": "eczn",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "eventemitter3": "^3.1.0",
+    "express": "^4.16.4",
+    "wolfy87-eventemitter": "^5.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^5.2.0",
+    "less": "^3.9.0",
+    "parcel": "^1.12.3",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.2.2"
+  }
+}
