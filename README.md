@@ -14,4 +14,4 @@ $ npm start
 3. [x] Component Render
 4. [x] State, setState 
 5. [x] Component Props
-
+6. [ ] Component Did Mount 
