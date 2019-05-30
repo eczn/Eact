@@ -6,7 +6,6 @@ function renderNode(node: Eact.Node): HTMLElement | null | Text {
     } else if (typeof node === 'string') {
         return document.createTextNode(node);
     } else if (Eact.Component.isComponent(node)) {
-
         return renderComponent(node);
     } else {
         const $elem = document.createElement(node.tag.toUpperCase());
@@ -24,7 +23,10 @@ function renderNode(node: Eact.Node): HTMLElement | null | Text {
         node.children.forEach(subNode => {
             if (Eact.Component.isComponent(subNode)) {
                 const $node = renderComponent(subNode);
-                if ($node) $elem.appendChild($node);
+                if ($node) {
+                    $elem.appendChild($node);
+                    subNode.componentDidMount();
+                }
             } else {
                 const $node = renderNode(subNode);
                 if ($node) $elem.appendChild($node);
@@ -56,9 +58,10 @@ export function render(elem: Eact.Element<any>, targetDom: HTMLElement) {
     const dom = Eact.Component.isComponent(elem) ? 
         renderComponent(elem) : 
         renderNode(elem);
-
+    
     if (dom) {
         targetDom.replaceWith(dom);
+        Eact.Component.isComponent(elem) && elem.componentDidMount();
     }
 }
 

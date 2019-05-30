@@ -28,10 +28,12 @@ export class Component<Props = {}, S = {}> {
 
     onStateChange: Function;
     reRender() {
-        if (this.onStateChange) this.onStateChange();
+        if (this.onStateChange) {
+            this.onStateChange();
+        }
     }
 
-    
+    componentDidMount() {}
 
     render(): Node<any> {
         return null;
@@ -42,8 +44,6 @@ export class Component<Props = {}, S = {}> {
         return e && e.state && e.render;
     }
 
-    // Circle 
-    componentDidMount?: () => void;
 }
 
 export type Node<NodeProps = {}> = null | string | Element<NodeProps>;

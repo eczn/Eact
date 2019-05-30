@@ -18,6 +18,10 @@ export class Counter extends Eact.Component<CounterProps, CounterState> {
         };
     }
 
+    componentDidMount() {
+        console.log('Mounted');
+    }
+
     render() {
         return (
             <div>
