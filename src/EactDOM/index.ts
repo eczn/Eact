@@ -38,7 +38,7 @@ function renderNode(node: Eact.Node): HTMLElement | null | Text {
 
 function renderComponent(compo: Eact.Component<any>): HTMLElement | null | Text {
     const eactNode = compo.render();
-    console.log('compo', compo, compo.render);
+    // console.log('compo', compo, compo.render);
     const $dom = renderNode(eactNode);
 
     compo.onStateChange = () => {

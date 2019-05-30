@@ -12,6 +12,11 @@ export class Component<Props = {}, S = {}> {
     props: Props;
     state: S;
 
+    constructor(props: Props) {
+        this.state = {} as S;
+        this.props = props as Props;
+    }
+
     setState(newState: Partial<S>) {
         // 覆盖 state
         Object.keys(newState).forEach(key => {
@@ -26,10 +31,7 @@ export class Component<Props = {}, S = {}> {
         if (this.onStateChange) this.onStateChange();
     }
 
-    constructor(props: Props) {
-        this.state = {} as S;
-        this.props = props as Props;
-    }
+    
 
     render(): Node<any> {
         return null;
@@ -37,12 +39,11 @@ export class Component<Props = {}, S = {}> {
 
     static isComponent(e: Element<any>): e is Component<any> {
         // @ts-ignore
-        if (e.state && e.render) {
-            return true;
-        } else {
-            return false;
-        }
+        return e && e.state && e.render;
     }
+
+    // Circle 
+    componentDidMount?: () => void;
 }
 
 export type Node<NodeProps = {}> = null | string | Element<NodeProps>;
